@@ -13,10 +13,26 @@ import SignupPage from './SignupPage';
 import TodosPage from './TodosPage';
 
 export default class App extends Component {
+
+  state = {
+    token: localStorage.getItem('TOKEN') || ''
+  }
+
+  handleTokenChange = (token) => {
+    localStorage.setItem('TOKEN', token)
+    this.setState({token: token})
+  }
+
   render() {
       return (
           <div>
               <Router>
+                <header>
+                  <NavLink to='/' >Home</NavLink>
+                  <NavLink to='/login' >Login</NavLink>
+                  <NavLink to='/signup' >Signup</NavLink>
+                  <NavLink to='/todos' >Todos</NavLink>
+                </header>
                   <Switch>
                       <Route 
                           path="/" 
@@ -31,12 +47,15 @@ export default class App extends Component {
                       <Route 
                         path="/signup" 
                         exact
-                        render={(routerProps) => <SignupPage {...routerProps} />} 
+                        render={(routerProps) => <SignupPage handleTokenChange={this.handleTokenChange}
+                          {...routerProps} />} 
                       />
                       <Route 
                         path="/todos" 
                         exact
-                        render={(routerProps) => <TodosPage {...routerProps} />} 
+                        render={(routerProps) => 
+                            <TodosPage token={this.state.token}
+                                      {...routerProps} />} 
                       />
                   </Switch>
               </Router>
