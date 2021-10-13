@@ -24,6 +24,11 @@ export default class App extends Component {
     this.setState({token: token})
   }
 
+  handleLogout = () => {
+    localStorage.clear();
+    this.setState({token: ''})
+  }
+
   render() {
       return (
           <div>
@@ -33,6 +38,7 @@ export default class App extends Component {
                   <NavLink to='/login' >Login</NavLink>
                   <NavLink to='/signup' >Signup</NavLink>
                   <NavLink to='/todos' >Todos</NavLink>
+                  <button className='logout' onClick={this.handleLogout}>Logout</button>
                 </header>
                   <Switch>
                       <Route 

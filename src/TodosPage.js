@@ -27,7 +27,7 @@ export default class TodosPage extends Component {
 
     render() {
         return (
-            <div>
+            <div className='todos'>
                 <form onSubmit={this.handleSubmit}>
                     <input value={this.state.todoName} onChange={(e) => this.setState({todoName: e.target.value})}/>
                     <button>Add To do</button>
@@ -35,7 +35,7 @@ export default class TodosPage extends Component {
                 <div className='list'>
                     {
                         this.state.todos.map((item) => {
-                            return <div key={item.id} onClick={() => this.handleTodoClick(item)} className = {item.completed ? 'complete' : 'incomplete'} >
+                            return <div key={item.id} onClick={() => this.handleTodoClick(item)} className = {item.completed ? 'todo complete' : 'todo incomplete'} >
                                 {item.todo}
                             </div>
                         })

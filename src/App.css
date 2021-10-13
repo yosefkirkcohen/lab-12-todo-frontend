@@ -1,8 +1,61 @@
 .complete {
-    color: red;
+    color: yellow;
     text-decoration: line-through;
 }
 
 .incomplete {
-    color: green;
+    color: blue;
+}
+
+header {
+    margin-bottom: 10px;
+}
+
+a {
+    margin: 5px;
+}
+
+.logout {
+    
+    padding-top: 0px;
+    margin-left: 5px;
+    border: none;
+    background-color: white;
+    color: rgb(93, 5, 145);
+    font-size: 1em;
+    text-decoration: underline;
+    font-weight: 100;
+}
+
+.logout:hover {
+    cursor: pointer;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo {
+    margin: 10px;
+    background-color: salmon;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px blue;
+    display: flex;
+    justify-content: center;
+    width: max-content;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
