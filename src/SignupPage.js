@@ -13,6 +13,8 @@ export default class SignupPage extends Component {
         const { token } = await signup(this.state.email, this.state.password)
 
         this.props.handleTokenChange(token)
+
+        this.props.history.push('/todos')
     }
 
     render() {

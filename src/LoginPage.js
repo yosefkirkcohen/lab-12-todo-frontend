@@ -12,6 +12,8 @@ export default class LoginPage extends Component {
         const { token } = await login(this.state.email, this.state.password)
 
         this.props.handleTokenChange(token)
+
+        this.props.history.push('/todos')
     }
 
     render() {
