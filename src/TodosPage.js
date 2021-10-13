@@ -30,7 +30,7 @@ export default class TodosPage extends Component {
             <div className='todos'>
                 <form onSubmit={this.handleSubmit}>
                     <input value={this.state.todoName} onChange={(e) => this.setState({todoName: e.target.value})}/>
-                    <button>Add To do</button>
+                    <button className='add'>Add to do</button>
                 </form>
                 <div className='list'>
                     {

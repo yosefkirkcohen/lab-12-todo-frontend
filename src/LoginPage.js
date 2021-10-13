@@ -19,7 +19,7 @@ export default class LoginPage extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className='signup' onSubmit={this.handleSubmit}>
                     <label>
                         Email
                         <input value={this.state.email} onChange={(e) => {this.setState({email: e.target.value})}} />
