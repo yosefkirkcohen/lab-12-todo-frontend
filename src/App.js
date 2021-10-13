@@ -4,7 +4,8 @@ import {
     BrowserRouter as Router, 
     Route, 
     Switch,
-    NavLink
+    NavLink,
+    Redirect
 } from 'react-router-dom';
 import './App.css';
 import HomePage from './HomePage.js';
@@ -42,7 +43,9 @@ export default class App extends Component {
                       <Route 
                           path="/login" 
                           exact
-                          render={(routerProps) => <LoginPage {...routerProps} />} 
+                          render={(routerProps) => <LoginPage 
+                            handleTokenChange={this.handleTokenChange} 
+                            {...routerProps} />} 
                       />
                       <Route 
                         path="/signup" 
@@ -54,8 +57,11 @@ export default class App extends Component {
                         path="/todos" 
                         exact
                         render={(routerProps) => 
-                            <TodosPage token={this.state.token}
-                                      {...routerProps} />} 
+                          this.state.token
+                          ?  <TodosPage token={this.state.token}
+                                      {...routerProps} />
+                          : <Redirect to='/signup' />          
+                                    } 
                       />
                   </Switch>
               </Router>
