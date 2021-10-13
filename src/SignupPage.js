@@ -20,14 +20,14 @@ export default class SignupPage extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className='signup' onSubmit={this.handleSubmit}>
                     <label>
                         Email
-                        <input value={this.state.email} onChange={(e) => {this.setState({email: e.target.value})}} />
+                        <input type='email' value={this.state.email} onChange={(e) => {this.setState({email: e.target.value})}} />
                     </label>
                     <label>
                         Password
-                        <input value={this.state.password} onChange={(e) => {this.setState({password: e.target.value})}} />
+                        <input  type='password' value={this.state.password} onChange={(e) => {this.setState({password: e.target.value})}} />
                     </label>
                     <button>Submit</button>
                 </form>
